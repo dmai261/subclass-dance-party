@@ -27,9 +27,8 @@ MakeDancer.prototype.setPosition = function(top, left) {
 MakeDancer.prototype.step = function() {
   // the basic dancer doesn't do anything interesting at all on each step,
   // it just schedules the next step
-  var thisContainer = this;
-  //this === MakeblinkyDancer
-  //console.log(thisContainer);
-  setTimeout(function(){ thisContainer.step(); }, this._timeBetweenSteps);
+  // console.log(thisContainer.prototype);
+  setTimeout(this.step.bind(this), this._timeBetweenSteps);
+  // setTimeout(function(){ thisContainer.step(); }, this._timeBetweenSteps);
 };
   
