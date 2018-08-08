@@ -1,18 +1,25 @@
 body, html{
   height:100%;
+  background-image: url("http://www.blueparrotcompany.net/wp-content/uploads/2017/02/Black-White-LED-Dance-floor-2.jpg");
+  background-position: center; 
+  background-repeat: no-repeat;
 }
-body{
+body {
+  
   margin: 0px;
   background-color:#444;
   font-size: 18px;
+  overflow: hidden;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
-.title, .addDancerButton{
-  padding:5px 12px;
+.title, .addDancerButton, .addSpinningDancerButton, .addMovingDancerButton, .lineup {
+  padding: 5px 12px;
   float:right;
 }
+
+
 .topbar{
   height:32px;
   background-color: #555;
@@ -21,7 +28,78 @@ body, a:link, a:visited, a:active{
   background-color: #777;
 }
 .dancer{
-  border:10px solid red;
-  border-radius:10px;
+  background: url(https://media1.tenor.com/images/66286c21e00a4ef6707abb4bfe19dcb3/tenor.gif?itemid=5043292);
+  background-size:cover;
+  width: 100px;
+  height: 100px;
   position:absolute;
+}
+
+.spinningDancer{
+  background: url(https://media.tenor.com/images/17cc3cecb80dcf084ee51af7b2bb1218/tenor.gif);
+  background-size:cover;
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  position:absolute;
+  -webkit-animation: rotation 2s infinite linear;
+  animation-play-state: running;
+}
+
+@-webkit-keyframes rotation {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(359deg);
+    }
+}
+
+.movingDancer {
+  background: url(https://media.giphy.com/media/pZCvWKwehPyUM/giphy.gif);
+  background-size: cover;
+  animation: 
+    pulse 3s ease infinite alternate, 
+    nudge 5s linear infinite alternate;
+  animation-play-state: running;
+  width: 50px;
+  height: 50px;
+  background-color: green;
+  position: absolute;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    background-color: yellow;
+  }
+  50% {
+    background-color: red;
+  }
+}
+
+@keyframes nudge {
+  0% {
+    transform: translate(0, 150px);
+  }
+  10% {
+    transform: translate(-200px,200px);
+  }
+  30% {
+    transform: translate(250px, 250px);
+  }
+  50% {
+    transform: translate(-250px, 0);
+  }
+  70% {
+    transform: translate(250px, 250px);
+  }
+  90% {
+    transform: translate(-150px, 0);
+  }
+}
+
+
+.spinningDancer:hover
+{
+  animation-play-state: paused;
 }
